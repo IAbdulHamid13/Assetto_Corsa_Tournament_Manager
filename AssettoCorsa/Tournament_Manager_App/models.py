@@ -1,10 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-
 
 # Create your models here.
-class Account(AbstractUser):
-    pass
+class Account(models.Model):
+    username = models.CharField(max_length=150, unique=True)
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=128)
 
 class Admin(Account):
     pass
@@ -16,13 +16,11 @@ class Event(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateField()
     participants = models.ForeignKey(Participant, related_name='events', on_delete=models.CASCADE)
-    
     tournament = models.ForeignKey('Tournament', on_delete=models.CASCADE, related_name='events')
 
 class Tournament(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateField()
-    events = models.ForeignKey(Event, related_name='tournaments', on_delete=models.CASCADE)
 
 class Server(models.Model):
     # [SERVER]
