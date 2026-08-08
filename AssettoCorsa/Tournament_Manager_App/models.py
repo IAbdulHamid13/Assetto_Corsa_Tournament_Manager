@@ -15,14 +15,14 @@ class Participant(Account):
 class Event(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateField()
-    participants = models.OneToManyField(Participant, related_name='events')
+    participants = models.ForeignKey(Participant, related_name='events', on_delete=models.CASCADE)
     
     tournament = models.ForeignKey('Tournament', on_delete=models.CASCADE, related_name='events')
 
 class Tournament(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateField()
-    events = models.OneToManyField(Event, related_name='tournaments')
+    events = models.ForeignKey(Event, related_name='tournaments', on_delete=models.CASCADE)
 
 class Server(models.Model):
     # [SERVER]
