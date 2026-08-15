@@ -17,6 +17,7 @@ class Event(models.Model):
     date = models.DateField()
     participants = models.ForeignKey(Participant, related_name='events', on_delete=models.CASCADE)
     tournament = models.ForeignKey('Tournament', on_delete=models.CASCADE, related_name='events')
+    server = models.ForeignKey('Server', on_delete=models.CASCADE, related_name='events')
 
 class Tournament(models.Model):
     name = models.CharField(max_length=100)
