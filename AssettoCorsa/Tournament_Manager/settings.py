@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "Tournament_Manager_App.apps.TournamentManagerAppConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
