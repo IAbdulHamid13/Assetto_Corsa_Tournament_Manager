@@ -1,27 +1,32 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-class Account(models.Model):
-    username = models.CharField(max_length=150, unique=True)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)
-
-class Admin(Account):
-    pass
-
-class Participant(Account):
-    pass
+class User(AbstractUser):
+    is_event_Organiser = models.BooleanField(default=False)
 
 class Event(models.Model):
-    name = models.CharField(max_length=100)
-    date = models.DateField()
-    participants = models.ForeignKey(Participant, related_name='events', on_delete=models.CASCADE)
     tournament = models.ForeignKey('Tournament', on_delete=models.CASCADE, related_name='events')
-    server = models.ForeignKey('Server', on_delete=models.CASCADE, related_name='events')
-
+    track = models.CharField(max_length=255)
+    event_time = models.DateTimeField()
+    server = models.OneToOneField('Server', on_delete=models.CASCADE, null=True, blank=True)
+    available_cars = models.ManyToManyField('Car', related_name='events')
+ 
 class Tournament(models.Model):
     name = models.CharField(max_length=100)
-    date = models.DateField()
+    max_participants = models.PositiveIntegerField() # Determined by track with smallest capacity
+    participants = models.ManyToManyField(User, related_name='tournaments', blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+class EventEntry(models.Model):
+    """Tracks driver car selections per event"""
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='entries')
+    participant = models.ForeignKey(User, on_delete=models.CASCADE, related_name='event_entries')
+    selected_car = models.ForeignKey('Car', on_delete=models.SET_NULL, null=True)
+    skin = models.CharField(max_length=255, blank=True)
 
 class Server(models.Model):
     # [SERVER]
