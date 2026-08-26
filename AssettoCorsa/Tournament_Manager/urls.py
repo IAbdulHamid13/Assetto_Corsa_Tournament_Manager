@@ -15,8 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+def views_for(resource : str):
+    '''
+    Return the result of `django.urls.include` with a path to the specific views package in this app.
+
+    :resource: The name of the file in the views folder
+
+    Just to make it easier if the name of the app 'Tournament_Manager_App' ever changes.
+    '''
+    return include(f'Tournament_Manager_App.views.{resource}')
 
 urlpatterns = [
+    path('', views_for('index'), name='index'),
     path('admin/', admin.site.urls),
+    path('tournaments/', views_for('tournaments'), name='tournaments')
 ]
