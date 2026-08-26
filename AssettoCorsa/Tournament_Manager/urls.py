@@ -30,7 +30,5 @@ def views_for(resource : str):
 urlpatterns = [
     path('', views_for('index'), name='index'),
     path('admin/', admin.site.urls),
-    # path('accounts/'),
-    path('tournaments/', views_for('tournaments'), name='tournaments'),
-    # path('cars/')
+    path('tournaments/', views_for('tournaments'), name='tournaments')
 ]
