@@ -23,6 +23,7 @@ function setHeaderImage(headerIndex = currentHeaderIndex) {
 // DOMContentLoaded
 function onDOMContentLoaded() {
     let startIndex = (Math.floor(Math.random() * 10)) % headerImages.length;
+    currentHeaderIndex = startIndex;
     setHeaderImage(startIndex);
     setInterval(setHeaderImage, 10000);
 }
