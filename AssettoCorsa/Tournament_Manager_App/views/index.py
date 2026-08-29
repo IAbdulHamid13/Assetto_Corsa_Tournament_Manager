@@ -1,8 +1,9 @@
 from django.http import HttpResponse
 from django.urls import path
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse('Tournament Manager index')
+    return render(request, 'Tournament_Manager_App/home.html')
 
 def login(request):
     return HttpResponse('Login page')
@@ -12,15 +13,20 @@ def register(request):
 
 def profile(request):
     # TODO: Get current user
-    return HttpResponse('Profile page')
+    return render(request, 'Tournament_Manager_App/profile.html')
 
 def schedule(request):
-    return HttpResponse('Schedule page')
+    return render(request, 'Tournament_Manager_App/schedule.html')
+
+def about(request):
+    return render(request, 'Tournament_Manager_App/aboutus.html')
+
 
 urlpatterns = [
     path('', index, name='index'),
     path('login', login, name='login'),
     path('register', register, name='register'),
     path('profile', profile, name='profile'),
-    path('schedule', schedule, name='schedule')
+    path('schedule', schedule, name='schedule'),
+    path('about',about, name='about'),
 ]
