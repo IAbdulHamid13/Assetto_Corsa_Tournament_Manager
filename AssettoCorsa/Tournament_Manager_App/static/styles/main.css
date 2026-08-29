@@ -1,0 +1,96 @@
+:root {
+    --red: rgb(124, 0, 0);
+    --main-gradient: no-repeat linear-gradient(rgb(15, 15, 15) 40%, var(--red)  180%);
+}
+
+html {
+    background: var(--main-gradient) fixed;
+    font-family: fantasy;
+}
+
+body {
+    margin: 0 10%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    > * {
+        padding: 0 10px;
+    }
+}
+
+
+header {
+    padding: 0;
+    flex: 0 0 20%;
+    display: flex;
+    transition: background 5s;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
+#site-name {
+    margin: 0 10px;
+    flex: 0.9;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: black 0 0 5px;
+    align-self: center;
+    a {
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 0 10px;
+    }
+}
+
+.header-menu {
+    background: var(--main-gradient);
+    display: flex;
+    flex: 0.3 0;
+    align-self: flex-end;
+    > a {
+        text-align: center;
+        text-decoration: none;
+        flex: 1;
+    }
+    > a:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+
+main {
+    background-color: white;
+    flex: 1;
+    a {
+        color: var(--red);
+        text-decoration: underline;
+    }
+}
+
+footer {
+    background-color: black;
+    color: white;
+    flex: 0 0 20%;
+    display: flex;
+    align-items: center;
+}
+
+#footer-main {
+    flex: 1;
+}
+
+#footer-secondary {
+    display: flex;
+    align-self: flex-start;
+    gap: 50px;
+    padding: 0 10%;
+    .footer-column {
+        align-self: flex-start;
+        > a {
+            display: block;
+            margin: 5px 0;
+        }
+    }
+}
