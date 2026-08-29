@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+        <title>{% block title %}{% endblock %} | ACTM</title>
+    </head>
+    <body>
+        <header>
+            <div id="site-name">
+                <a href="/">ACTM</a>
+            </div>
+            <div class="header-menu">
+                <a href="/">Home</a>
+                <a href="{% url 'schedule' %}">Schedule</a>
+                <a href="{% url 'tournaments:all' %}">Tournaments</a>
+                <a href="{% url 'profile'%}">Profile</a>
+            </div>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer>
+            <div id="footer-main">
+                <h2>
+                    <a href="/">ACTM</a>
+                </h2>
+            </div>
+            <div id="footer-secondary">
+                <div class="footer-column">
+                    <h4>Tournaments</h4>
+                    <a href="{% url 'tournaments:all' %}">Tournaments</a>
+                    <a href="{% url 'schedule' %}">Schedule</a>
+                </div>
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <a href="{% url 'about' %}">About Us</a>
+                </div>
+            </div>
+        </footer>
+        <script src="/static/scripts/main.js"></script>
+    </body>
+</html>

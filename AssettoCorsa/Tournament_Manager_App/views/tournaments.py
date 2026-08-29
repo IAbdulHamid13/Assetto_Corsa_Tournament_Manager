@@ -40,6 +40,7 @@ def event_register(request, pk, event_pk):
     # TODO: Create event entry using user and event and chosen car
     return HttpResponse('User selected car for event')
 
+app_name='tournaments'
 urlpatterns = [
     path('', IndexView.as_view(), name='all'),
     path('create', TournamentCreateView.as_view(), name='create'),
