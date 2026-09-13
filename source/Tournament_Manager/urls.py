@@ -1,5 +1,5 @@
 """
-URL configuration for Tournament_Manager project.
+URL configuration for tournament_manager project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.1/topics/http/urls/
@@ -17,18 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-def views_for(resource : str):
-    '''
-    Return the result of `django.urls.include` with a path to the specific views package in this app.
-
-    :resource: The name of the file in the views folder
-
-    Just to make it easier if the name of the app 'Tournament_Manager_App' ever changes.
-    '''
-    return include(f'Tournament_Manager_App.views.{resource}')
-
 urlpatterns = [
-    path('', views_for('index'), name='index'),
     path('admin/', admin.site.urls),
-    path('tournaments/', views_for('tournaments'), name='tournaments')
+    path('', include('main.urls'), name='index'),
+    path('tournaments/', include('tournaments.urls'), name='tournaments')
 ]
