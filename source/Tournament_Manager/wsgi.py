@@ -11,14 +11,14 @@ import os
 import configparser
 from django.core.wsgi import get_wsgi_application
 from pathlib import Path
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Tournament_Manager.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tournament_manager.settings')
 
 application = get_wsgi_application()
 
 def populateCarsFromIni():
-    from Tournament_Manager_App.models import Car
+    from main.models import Car
     base_dir = Path(__file__).resolve().parent.parent
-    ini_path = base_dir / 'Tournament_Manager_App' / 'car_list' / 'car_list.ini'
+    ini_path = base_dir / 'main' / 'car_list' / 'car_list.ini'
 
     if not ini_path.exists():
         print(f"[WSGI STARTUP] INI FILE NOT FOUND AT {ini_path}")
