@@ -11,9 +11,17 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
+from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env(
+    # Set default values and types
+    DEBUG=(bool, False)
+)
+environ.Env.read_env(BASE_DIR / '.env')
 
 
 # Quick-start development settings - unsuitable for production
@@ -124,8 +132,25 @@ STATIC_URL = 'static/'
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
+ANYMAIL = {
+    "MAILTRAP_API_TOKEN": env('ANYMAIL_MAILTRAP_API_TOKEN'),
+    "MAILTRAP_SANDBOX_ID": 3087037,
 }
+
+EMAIL_BACKEND = env('EMAIL_BACKEND')
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+
+""" 
+to test, run this in py manage.py shell
+
+from django.core.mail import send_mail
+
+send_mail(
+    subject='Test Email',
+    message='This is a test email sent from Django shell.',
+    from_email="isaabdulhamid14@gmail.com",
+    recipient_list=['your_email@example.com'],
+    fail_silently=False,
+)
+
+ """
