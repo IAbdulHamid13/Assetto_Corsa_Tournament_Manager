@@ -1,0 +1,14 @@
+#login-form-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    > form {
+        background-color: lightgrey;
+        padding: 10px;
+        margin: auto;
+        border-radius: 10px;
+        justify-items: center;
+        text-align: center;
+    }
+}
