@@ -29,6 +29,14 @@ header {
 a {
     color: white;
     text-decoration: none;
+    cursor: pointer;
+    form {
+        justify-items: center;
+        button {
+            appearance: none;
+            all: inherit;
+        }
+    }
 }
 
 

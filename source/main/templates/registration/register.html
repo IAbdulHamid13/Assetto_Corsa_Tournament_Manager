@@ -1,0 +1,31 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'styles/login.css' %}">
+{% endblock %}
+{% block content %}
+<div id="login-form-area">
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="input-field">
+            {{form.email.label_tag}}
+            {{form.email}}
+        </div>
+        <div class="input-field">
+            {{form.username.label_tag}}
+            {{form.username}}
+        </div>
+        <div class="input-field">
+            {{form.password1.label_tag}}
+            {{form.password1}}
+        </div>
+        <div class="input-field">
+            {{form.password2.label_tag}}
+            {{form.password2}}
+        </div>
+        <button>Register</button>
+    </form>
+</div>
+
+{% endblock %}

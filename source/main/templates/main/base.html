@@ -3,6 +3,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+        {% block head %}{% endblock %}
         <title>{% block title %}{% endblock %} | ACTM</title>
     </head>
     <body>
@@ -14,7 +15,17 @@
                 <a href="/">Home</a>
                 <a href="{% url 'schedule' %}">Schedule</a>
                 <a href="{% url 'tournaments:all' %}">Tournaments</a>
-                <a href="{% url 'profile'%}">Profile</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">{{user}}</a>
+                <a>
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button>Logout</button>
+                    </form>
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                {% endif %}
             </div>
         </header>
         <main>
