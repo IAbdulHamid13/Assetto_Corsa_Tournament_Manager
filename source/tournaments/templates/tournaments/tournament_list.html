@@ -1,0 +1,40 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'styles/tournaments.css' %}">
+{% endblock %}
+{% block content %}
+<h1>Tournaments</h1>
+<div class="tournaments-list">
+    <div class="tournament-item">
+        <div class="tournament-card">
+            Tournament 1
+        </div>
+    </div>
+    <div class="tournament-item">
+        <div class="tournament-card">
+            Tournament 2
+        </div>
+    </div>
+    <div class="tournament-item">
+        <div class="tournament-card">
+            <div class="tournament-preview">
+                Just for Fun!
+            </div>
+            <div class="tournament-details">
+                <p>Start Date</p>
+                <p>Num Drivers</p>
+                <p>Something else</p>
+            </div>
+        </div>
+    </div>
+    <div class="tournament-item">
+        <div class="tournament-card">
+            <div class="tournament-preview">
+                New Tournament
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

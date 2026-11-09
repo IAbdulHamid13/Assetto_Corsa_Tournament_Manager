@@ -1,0 +1,40 @@
+.tournaments-list {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.tournament-item {
+    display: inline;
+    width: 15rem;
+    height: 15rem;
+    padding: 1rem;
+}
+
+.tournament-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 1rem;
+    height: 100%;
+    background-color: rgb(from red r g b / 0.2);
+    transition: background-color 0.6s;
+    display: flex;
+    flex-direction: column;
+    > * {
+        flex: 1;
+    }
+    > .tournament-details {
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.2);
+        position: relative;
+        top: 9rem;
+        transition: top 0.6s;
+    }
+}
+
+.tournament-card:hover {
+    cursor: pointer;
+    background-color: rgb(from red r g b / 0.4);
+    > .tournament-details {
+        top: 0;
+    }
+}
