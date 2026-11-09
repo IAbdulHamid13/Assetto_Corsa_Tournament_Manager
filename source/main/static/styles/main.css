@@ -5,7 +5,7 @@
 
 html {
     background: var(--main-gradient) fixed;
-    font-family: fantasy;
+    font-family: sans-serif;
 }
 
 body {
