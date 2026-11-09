@@ -70,7 +70,7 @@ a {
 
 main {
     background-color: white;
-    flex: 1;
+    flex: 1 0 80%;
     a {
         color: var(--red);
         text-decoration: underline;
