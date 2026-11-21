@@ -13,6 +13,8 @@
 }
 
 .tournament-card {
+    text-decoration: none !important;
+    color: unset !important;
     border-radius: 1rem;
     overflow: hidden;
     padding: 1rem;
