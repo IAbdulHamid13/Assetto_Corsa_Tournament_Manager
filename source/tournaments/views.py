@@ -41,3 +41,5 @@ def event_register(request, pk, event_pk):
     # TODO: Create event entry using user and event and chosen car
     return HttpResponse('User selected car for event')
 
+def sample(request):
+    return render(request, 'tournaments/sample_tournament.html')

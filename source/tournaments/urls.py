@@ -8,5 +8,6 @@ urlpatterns = [
     path('<int:pk>', views.DetailView.as_view(), name='details'),
     path('<int:pk>/register', views.tournament_register, name='tournament_register'),
     path('<int:pk>/events/create', views.EventCreateView.as_view(), name='event_create'),
-    path('<int:pk>/events/<int:event_pk>/register', views.event_register, name='event_register')
+    path('<int:pk>/events/<int:event_pk>/register', views.event_register, name='event_register'),
+    path('sample', views.sample, name='sample_tournament')
 ]
