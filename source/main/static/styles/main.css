@@ -6,6 +6,7 @@
 html {
     background: var(--main-gradient) fixed;
     font-family: sans-serif;
+    scrollbar-color: var(--red) rgb(15, 15, 15);
 }
 
 body {
