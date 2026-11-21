@@ -1,0 +1,117 @@
+:root {
+    --splash-transition: 1s;
+}
+
+.tournament-detail-area {
+    background-image: linear-gradient(white -5%, black 1%, rgb(25, 25, 25) 100%);
+    width: 100%;
+    height: 85%;
+    outline: solid thick black;
+    border-radius: 1rem;
+    display: flex;
+    overflow: hidden;
+}
+
+.tournament-splash {
+    flex: 0 0 25%;
+    transition: all 1s;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+    border-radius: 1rem;
+}
+
+.tournament-image {
+    position: relative;
+    opacity: 0.7;
+    transition: all var(--splash-transition);
+    left: -100%;
+}
+
+.tournament-image-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(black -10%, transparent 5%, transparent 80%, black);
+}
+
+.tournament-splash:hover {
+    flex: 1 0 40%;
+    .tournament-image {
+        opacity: 1;
+        left: -80%;
+    }
+}
+
+.tournament-name {
+    position: absolute;
+    bottom: 0;
+    margin: 0.5rem;
+    color: white;
+    font-size: xx-large;
+    text-shadow: 0 0 0.4rem black;
+}
+
+.tournament-events {
+    flex: 0 1 80%;
+    padding: 0 1rem;
+    color: white;
+    overflow: auto;
+    scrollbar-color: black white;
+}
+
+.event {
+    width: 100%;
+    height: 20%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), var(--event-hover) 150%);
+    margin: 1rem 0;
+    position: relative;
+    transition: --event-hover 0.3s;
+    outline: solid thin white;
+}
+
+@property --event-hover {
+    syntax: '<color>';
+    initial-value: transparent;
+    inherits: false;
+}
+
+.event:hover {
+    --event-hover: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.event-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0.4rem;
+    font-size: larger;
+}
+
+.event-name {
+    font-weight: bold;
+}
+
+.track-name {
+    font-style: italic;
+    font-size: medium;
+    color: rgb(from currentColor r g b / 0.8);
+}
+
+.new-event {
+    outline-style: dashed;
+    display: flex;
+    align-items: center;
+    outline-color: rgb(from currentColor r g b / 0.8);
+}
+
+.new-event::after {
+    text-align: center;
+    font-size: x-large;
+    color: rgb(from currentColor r g b / 0.8);
+    content: "+ New Event";
+    flex: 1;
+}
