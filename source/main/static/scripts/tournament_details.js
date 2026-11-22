@@ -1,25 +1,40 @@
 document.addEventListener("DOMContentLoaded", initEventDetails);
-let detailsOpen = false;
+let eventsList;
+let eventDetails;
+let events;
+let detailEventName;
 
 function initEventDetails() {
-    const events = document.querySelectorAll(".event");
+    events = document.querySelectorAll(".event");
     events.forEach(event => {
         event.addEventListener("click", openEventDetails(event.dataset.query))
     })
+    eventsList = document.getElementById("events-list");
+    eventDetails = document.getElementById("event-details");
+    detailEventName = document.getElementById("detail-event-name");
+    if (detailEventName) {
+        detailEventName.addEventListener("click", closeEventDetails);
+    }
 }
 
 function openEventDetails(eventURL = null) {
     return function() {
-        detailsOpen = true;
         // TODO: Perform a fetch on eventURL to get the actual event details
         // fetch(eventURL)...
-        const eventsList = document.getElementById("events-list");
         if (eventsList) {
             eventsList.style.left = "-100%";
         }
-        const eventDetails = document.getElementById("event-details");
         if (eventDetails) {
             eventDetails.style.left = "-100%";
         }
+    }
+}
+
+function closeEventDetails() {
+    if (eventsList) {
+        eventsList.style.left = null;
+    }
+    if (eventDetails) {
+        eventDetails.style.left = null;
     }
 }
