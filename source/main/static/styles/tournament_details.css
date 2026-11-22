@@ -139,6 +139,18 @@
     flex: 1;
 }
 
+.flex-scroll-container {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    overflow: hidden;
+    border-radius: 0 1rem 1rem 1rem;
+}
+
+.tab-content {
+    overflow: auto;
+}
+
 #track-settings {
     display: flex;
     height: 20%;
@@ -149,6 +161,7 @@
 }
 
 #track-select {
+    height: 10rem;
     flex: 0 0 30%;
     background-color: white;
 }
