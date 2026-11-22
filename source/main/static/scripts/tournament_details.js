@@ -13,18 +13,13 @@ function openEventDetails(eventURL = null) {
         detailsOpen = true;
         // TODO: Perform a fetch on eventURL to get the actual event details
         // fetch(eventURL)...
-        const tournamentEvents = document.getElementById("tournament-events");
-        if (tournamentEvents) {
-            tournamentEvents.scroll({"left": tournamentEvents.scrollWidth / 2, "behavior": "smooth"});
+        const eventsList = document.getElementById("events-list");
+        if (eventsList) {
+            eventsList.style.left = "-100%";
         }
-    }
-}
-
-function scrollToDetails() {
-    if (detailsOpen) {
-        const tournamentEvents = document.getElementById("tournament-events");
-        if (tournamentEvents) {
-            tournamentEvents.scroll({"left": tournamentEvents.scrollWidth / 2, "behavior": "smooth"});
+        const eventDetails = document.getElementById("event-details");
+        if (eventDetails) {
+            eventDetails.style.left = "-100%";
         }
     }
 }

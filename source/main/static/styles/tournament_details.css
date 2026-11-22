@@ -61,11 +61,15 @@
     overflow: hidden;
     scrollbar-color: black white;
     white-space: nowrap;
+    position: relative;
     > * {
+        position: relative;
         display: inline-block;
         vertical-align: top;
         width: 100%;
-        height: 100%
+        height: 100%;
+        left: 0;
+        transition: left 0.5s;
     }
 }
 
