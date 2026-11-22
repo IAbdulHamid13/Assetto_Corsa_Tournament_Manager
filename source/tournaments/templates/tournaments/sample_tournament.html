@@ -39,14 +39,108 @@
             <div class="flex-scroll-container">
                 <div class="tab-content" id="track">
                     <div id="track-settings">
-                        <div id="track-select"></div>
+                        <div id="track-select">
+                            <h3>Layout</h3>
+                            <div id="selected-layout" class="test-item-box item-box">
+                                <div class="item-name">Spa-Francorchamps - GP</div>
+                            </div>
+                            <div class="selectable-container" id="track-layouts">
+                                <div class="selectable item-box test-item-box"></div>
+                                <div class="selectable item-box test-item-box"></div>
+                                <div class="selectable item-box selected test-item-box"></div>
+                                <div class="selectable item-box test-item-box"></div>
+                                <div class="selectable item-box test-item-box"></div>
+                                <div class="selectable item-box test-item-box"></div>
+                            </div>
+                        </div>
                         <div id="event-schedule">
-                            <div class="start-time">
+                            <h3>Scheduling</h3>
+                            <div class="input-field">
                                 <label for="event-start-time">Event Start Time</label>
                                 <input type="datetime-local" name="event-start-time" id="event-start-time">
                             </div>
+                            <div class="divider"></div>
+                            <h4>Sessions</h4>
+                            <div class="input-field">
+                                <label for="practice-session">Practice?</label>
+                                <input type="checkbox" name="practice-session" id="practice-session" data-target="practice-duration-input">
+                            </div>
+                            <div class="input-field" id="practice-duration-input">
+                                <label for="practice-duration">Duration (Minutes)</label>
+                                <input type="number" name="practice-duration" id="practice-duration" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label for="qualifying-session">Qualifying?</label>
+                                <input type="checkbox" name="qualifying-session" id="qualifying-session" data-target="qualifying-duration-input">
+                            </div>
+                            <div class="input-field" id="qualifying-duration-input">
+                                <label for="qualifying-duration">Duration (Minutes)</label>
+                                <input type="number" name="qualifying-duration" id="qualifying-duration" disabled>
+                            </div>
+                            <div class="input-field">
+                                <label for="race-session">Race?</label>
+                                <input type="checkbox" name="race-session" id="race-session" checked="true" data-target="race-duration-input">
+                            </div>
+                            <div class="input-field" id="race-duration-input">
+                                <label for="race-duration">Duration</label>
+                                <input type="number" name="race-duration" id="race-duration" placeholder="5" value="10">
+                                <select name="race-duration-unit" id="race-duration-unit">
+                                    <option value="1">Laps</option>
+                                    <option value="2">Minutes</option>
+                                </select>
+                            </div>
                         </div>
-                        <div id="track-conditions"></div>
+                        <div id="track-conditions">
+                            <h3>Track Conditions</h3>
+                            <div class="input-field">
+                                <label for="time-of-day">Time of Day</label>
+                                <input type="range" name="time-of-day" id="time-of-day" min="0" max="100">
+                            </div>
+                            <div class="input-field">
+                                <label for="track-temp">Track Temperature</label>
+                                <input type="range" name="track-temp" id="track-temp">
+                            </div>
+                            <div class="input-field">
+                                <label for="weather">Weather</label>
+                                <select name="weather" id="weather">
+                                    <option value="1">Clear</option>
+                                    <option value="2">Overcast</option>
+                                    <option value="3">Fog</option>
+                                    <option value="4">Hail</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <h3>Track Selection</h3>
+                    <div class="selectable-container" id="tracks-container">
+                        <div class="test-item-box selectable item-box">
+                            <div class="item-name">Imola</div>
+                        </div>
+                        <div class="test-item-box selectable item-box">
+                            <div class="item-name">Laguna Seca</div>
+                        </div>
+                        <div class="test-item-box selectable item-box">
+                            <div class="item-name">Mugello</div>
+                        </div>
+                        <div class="test-item-box selectable item-box">
+                            <div class="item-name">Nurburgring</div>
+                        </div>
+                        <div class="test-item-box selectable item-box">
+                            <div class="item-name">Red Bull Ring</div>
+                        </div>
+                        <div class="test-item-box selectable item-box">
+                            <div class="item-name">Silverstone</div>
+                        </div>
+                        <div class="test-item-box selectable item-box selected">
+                            <div class="item-name">Spa-Francorchamps</div>
+                        </div>
+                        <div class="test-item-box selectable item-box">
+                            <div class="item-name">Vallelunga</div>
+                        </div>
+                        <div class="test-item-box selectable item-box">
+                            <div class="item-name">Zandvoort</div>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-content" id="cars"></div>

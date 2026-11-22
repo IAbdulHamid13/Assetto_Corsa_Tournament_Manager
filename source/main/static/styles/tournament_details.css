@@ -153,7 +153,6 @@
 
 #track-settings {
     display: flex;
-    height: 20%;
     gap: 1rem;
     > * {
         flex: 1;
@@ -161,7 +160,54 @@
 }
 
 #track-select {
-    height: 10rem;
     flex: 0 0 30%;
-    background-color: white;
+}
+
+#selected-layout {
+    height: 10rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+#track-layouts {
+    display: flex;
+    height: 4rem;
+    gap: 0.5rem;
+    overflow: auto;
+    > * {
+        flex: 0 0 20%;
+    }
+}
+
+#tracks-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    > * {
+        height: 10rem;
+        margin: 0.5rem;
+        box-sizing: border-box;
+    }
+}
+
+.selectable.item-box {
+    cursor: pointer;
+    user-select: none;
+}
+
+.item-box {
+    position: relative;
+}
+
+.item-box .item-name {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    bottom: 0;
+    padding: 0.2rem;
+    width: calc(100% - 0.4rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.selectable.item-box.selected {
+    border: solid thick var(--red);
 }
