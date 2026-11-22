@@ -13,20 +13,28 @@
         <div class="tournament-name">Sample Tournament Name Is Very Long</div>
     </div>
     <div id="tournament-events">
-        <h2>Events</h2>
-        <div class="event" data-query="/">
-            <div class="event-title"><span class="event-name">Race 1</span> <span class="track-name">@ Spa-Francorchamps</span></div>
+        <div id="events-list">
+            <h2>Events</h2>
+            <div class="event" data-query="/">
+                <div class="event-title"><span class="event-name">Race 1</span> <span class="track-name">@ Spa-Francorchamps</span></div>
+            </div>
+            <div class="event" data-query="/">
+                <div class="event-title"><span class="event-name">Race 2</span> <span class="track-name">@ Laguna Seca</span></div>
+            </div>
+            <div class="event" data-query="/">
+                <div class="event-title"><span class="event-name">Race 3</span> <span class="track-name">@ Red Bull Ring</span></div>
+            </div>
+            <div class="event" data-query="/">
+                <div class="event-title"><span class="event-name">Race 4</span> <span class="track-name">@ Mugello</span></div>
+            </div>
+            <div class="event new-event"></div>
         </div>
-        <div class="event" data-query="/">
-            <div class="event-title"><span class="event-name">Race 2</span> <span class="track-name">@ Laguna Seca</span></div>
+        <div id="event-details">
+            <h2>Event Name</h2>
         </div>
-        <div class="event" data-query="/">
-            <div class="event-title"><span class="event-name">Race 3</span> <span class="track-name">@ Red Bull Ring</span></div>
-        </div>
-        <div class="event" data-query="/">
-            <div class="event-title"><span class="event-name">Race 4</span> <span class="track-name">@ Mugello</span></div>
-        </div>
-        <div class="event new-event"></div>
     </div>
 </div>
+{% endblock %}
+{% block scripts %}
+<script type="module" src="{% static 'scripts/tournament_details.js' %}"></script>
 {% endblock %}

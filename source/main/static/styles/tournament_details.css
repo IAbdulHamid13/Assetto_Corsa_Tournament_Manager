@@ -57,10 +57,23 @@
 
 #tournament-events {
     flex: 0 1 80%;
-    padding: 0 1rem;
     color: white;
-    overflow: auto;
+    overflow: hidden;
     scrollbar-color: black white;
+    white-space: nowrap;
+    > * {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        height: 100%
+    }
+}
+
+#events-list {
+    box-sizing: border-box;
+    flex-direction: column;
+    overflow-x: hidden;
+    padding: 0 1rem;
 }
 
 .event {
@@ -70,7 +83,7 @@
     margin: 1rem 0;
     position: relative;
     transition: --event-hover 0.3s;
-    outline: solid thin white;
+    border: solid thin white;
 }
 
 @property --event-hover {
@@ -103,10 +116,10 @@
 }
 
 .new-event {
-    outline-style: dashed;
+    border-style: dashed;
     display: flex;
     align-items: center;
-    outline-color: rgb(from currentColor r g b / 0.8);
+    border-color: rgb(from currentColor r g b / 0.8);
 }
 
 .new-event::after {
