@@ -1,0 +1,27 @@
+.tabs {
+    display: flex;
+    user-select: none;
+}
+
+.tabs .tab {
+    cursor: pointer;
+    flex: 0 0 fit-content;
+    padding: 1rem;
+    border: solid black;
+    border-radius: 1rem 1rem 0 0;
+    background: var(--main-gradient);
+}
+
+.tabs .tab.active {
+    background: var(--red);
+    border: solid var(--red);
+    border-bottom: none;
+}
+
+.tab-content {
+    box-sizing: border-box;
+    padding: 1rem;
+    border: solid var(--red);
+    border-radius: 1rem;
+    border-top-left-radius: 0;
+}

@@ -3,6 +3,7 @@
 {% block title %}Sample Tournament{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'styles/tournament_details.css' %}">
+<link rel="stylesheet" href="{% static 'styles/tabs.css' %}">
 {% endblock %}
 {% block content %}
 <div id="tournament-detail-area">
@@ -29,11 +30,29 @@
             <div class="event new-event"></div>
         </div>
         <div id="event-details">
-            <h2>Event Name</h2>
+            <h2 id="detail-event-name">Race 1</h2>
+            <div class="tabs">
+                <div class="tab active" data-target="track-settings">Track</div>
+                <div class="tab" data-target="cars">Cars</div>
+                <div class="tab" data-target="entry-list">Entry List</div>
+            </div>
+            <div class="tab-content" id="track-settings">
+                <div id="track-select"></div>
+                <div id="event-schedule">
+                    <div class="start-time">
+                        <label for="event-start-time">Event Start Time</label>
+                        <input type="datetime-local" name="event-start-time" id="event-start-time">
+                    </div>
+                </div>
+                <div id="track-conditions"></div>
+            </div>
+            <div class="tab-content" id="cars"></div>
+            <div class="tab-content" id="entry-list"></div>
         </div>
     </div>
 </div>
 {% endblock %}
 {% block scripts %}
 <script type="module" src="{% static 'scripts/tournament_details.js' %}"></script>
+<script type="module" src="{% static 'scripts/tabs.js' %}"></script>
 {% endblock %}

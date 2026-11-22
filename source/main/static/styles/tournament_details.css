@@ -138,3 +138,17 @@
     content: "+ New Event";
     flex: 1;
 }
+
+#track-settings {
+    display: flex;
+    height: 20%;
+    gap: 1rem;
+    > * {
+        flex: 1;
+    }
+}
+
+#track-select {
+    flex: 0 0 30%;
+    background-color: white;
+}
