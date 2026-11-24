@@ -179,11 +179,10 @@
     }
 }
 
-#tracks-container {
+#tracks-container, #cars-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     > * {
-        height: 10rem;
         margin: 0.5rem;
         box-sizing: border-box;
     }
@@ -192,6 +191,7 @@
 .selectable.item-box {
     cursor: pointer;
     user-select: none;
+    height: 10rem;
 }
 
 .item-box {
