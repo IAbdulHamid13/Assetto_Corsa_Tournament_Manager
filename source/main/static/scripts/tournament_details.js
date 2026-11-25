@@ -1,4 +1,5 @@
 import {setBoxClick} from "./selectable_item_box.js";
+import {FilterSortCollection} from "./FilterSortCollection.js";
 
 document.addEventListener("DOMContentLoaded", initEventDetails);
 let eventsList;
@@ -33,6 +34,33 @@ function initEventDetails() {
     })
 
     initDynamicCheckboxes();
+    initFilterSorts();
+}
+
+function initFilterSorts() {
+    const trackFilterSort = new FilterSortCollection("tracks-container", ".item-box");
+    trackFilterSort.setItemData(trackBox => {
+        const trackName = trackBox.querySelector(".item-name");
+        if (trackName) return trackName.innerText;
+        return "";
+    });
+    trackFilterSort.setupSearch("tracks-search");
+    trackFilterSort.addSort("name", 1)
+    const trackSortName = document.getElementById("track-sort-name");
+    if (trackSortName) {
+        trackSortName.addEventListener("click", trackFilterSort.sortEvent("name", trackFilterSort));
+    }
+    const carFilterSort = new FilterSortCollection("cars-container", ".item-box");
+    carFilterSort.setItemData(carBox => {
+        const carName = carBox.querySelector(".item-name");
+        if (carName) return carName.innerText;
+        return "";
+    })
+    carFilterSort.setupSearch("cars-search");
+    const carSortName = document.getElementById("car-sort-name");
+    if (carSortName) {
+        carSortName.addEventListener("click", carFilterSort.sortEvent("default", carFilterSort));
+    }
 }
 
 function openEventDetails(eventURL = null) {
